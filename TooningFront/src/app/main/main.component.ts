@@ -27,7 +27,8 @@ export class MainComponent implements OnInit {
   ngOnInit() {      
     // Simple GET request with response type <any>
     this.http.get<any>('http://localhost:5000/test').subscribe(data => {
-        this.postId = data.templets_img;
+        this.postId = data[0].templets_img;
+        console.log(data[0].templets_id)
     })
 }
 }
