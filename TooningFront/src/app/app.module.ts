@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ParticipatingWorksComponent } from './participating-works/participating-works.component';
 import { ParticipatingComponent } from './participating/participating.component';
 import { MainComponent } from './main/main.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const router : Routes = [
   {path : 'participating-works', component : ParticipatingWorksComponent},
@@ -24,6 +25,7 @@ const router : Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(router,{enableTracing:false}),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
