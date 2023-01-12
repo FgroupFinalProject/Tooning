@@ -9,6 +9,7 @@ import { ParticipatingComponent } from './participating/participating.component'
 import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopularTemplatesComponent } from './main/popular-templates/popular-templates.component';
+import { HeaderComponent } from './header/header.component';
 
 const router : Routes = [
   {path : 'participating-works', component : ParticipatingWorksComponent},
@@ -22,7 +23,8 @@ const router : Routes = [
     ParticipatingWorksComponent,
     ParticipatingComponent,
     MainComponent,
-    PopularTemplatesComponent
+    PopularTemplatesComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

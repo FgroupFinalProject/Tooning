@@ -1,8 +1,8 @@
-<div class="logo">
+<!-- <div class="logo">
     <img cImg fluid src="assets/img/squareLogo.png" />
-</div>
+</div> -->
+<app-header></app-header>
 <div class="container text-center">
-    
     <div class="row">
         <h1>안녕하세요!<br>
             모두를 위한<br>
@@ -16,26 +16,28 @@
     </div>
     <br>
     <div class="row">
-        <h2>
-            12월 31일까지 응모가능</h2>
+        <h2>12월 31일까지 응모가능</h2>
     </div>
+
+    <div class="col">
+        <button (click)="participatingWorks()" class="btn btn-secondary"> 참가작보기 </button>
+    </div>
+
+<br>
+
+    <div class="col">
+        <button (click)="participating()" class="btn btn-secondary"> 참가하기 </button>
+    </div>
+
+
     <div class="row">
-        <div class="col">
-            <button (click)="participatingWorks()" class="btn btn-secondary"> 참가작보기 </button>
-        </div>
+        <h2>인기템플릿</h2>
+    </div>
+    <br>
+    <app-popular-templates></app-popular-templates>
 
 
 
-<div class="col">
-    <button (click)="participating()" class="route-button"> 참가하기 </button>
-</div>
-</div>
-
-<div class="row">
-<app-popular-templates></app-popular-templates>   
-</div>
-
-
-<div class="test">
-    <div>Post Id: {{postId}}</div>
-</div>
+    <div class="test">
+        <div>Post Id: {{postId}}</div>
+    </div>
