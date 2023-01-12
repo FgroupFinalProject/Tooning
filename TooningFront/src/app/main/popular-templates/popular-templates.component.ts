@@ -1,6 +1,16 @@
 import { Component } from '@angular/core';
 
-const templats : string[] = ['assets/img/image1.jpg','assets/img/image2.jpg','assets/img/image3.jpg','assets/img/image4.jpg']
+interface Itemplates {
+  src: string,
+  url : string
+}
+
+let templats: Itemplates[] = 
+[{ src: 'assets/img/image1.jpg', url: 'https://tooning.io/canvas-share/152069' },
+{ src: 'assets/img/image2.jpg', url: 'https://tooning.io/canvas-share/152144' },
+{ src: 'assets/img/image3.jpg', url: 'https://tooning.io/canvas-share/1669613' },
+{ src: 'assets/img/image4.jpg', url: 'https://tooning.io/canvas-share/1668001' }
+];
 
 @Component({
   selector: 'app-popular-templates',
@@ -9,7 +19,7 @@ const templats : string[] = ['assets/img/image1.jpg','assets/img/image2.jpg','as
 })
 export class PopularTemplatesComponent {
 
-list : string[] | undefined;
+list : Itemplates[] | undefined;
 
 constructor(){
   this.list = templats;
