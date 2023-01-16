@@ -1,2 +1,11 @@
 <app-header></app-header>
 <p>participating works!</p>
+<div>
+    <form action="http://localhost:5000/upload_images" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleFormControlFile1">파일업로드</label>
+            <input type="file" class="form-control-file" id="fileupload" name="fileupload">
+        </div>
+        <input type="submit" value="올리기">
+    </form>
+</div>
