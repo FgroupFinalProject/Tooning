@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 export class MainComponent implements OnInit {
 
-  postId : any;
+  postId: any;
 
   constructor(
     private router: Router,
@@ -25,11 +25,11 @@ export class MainComponent implements OnInit {
     this.router.navigate(['/participating'])
   }
 
-  ngOnInit() {      
+  ngOnInit() {
     // Simple GET request with response type <any>
     this.http.get<any>('http://localhost:5000/test').subscribe(data => {
-        this.postId = data[0].templets_img;
-        console.log(data[0].templets_id)
+      this.postId = data[0].templets_img;
+      console.log(data[0].templets_id)
     })
-}
+  }
 }
