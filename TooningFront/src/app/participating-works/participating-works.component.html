@@ -1,2 +1,6 @@
 <app-header></app-header>
-<p>participating-works works!</p>
+<input type="file" (change)="onChange($event)" accept="image/*"/>
+<div *ngIf="myImage">
+    <img [src]="myImage" width="500px" height="500px"/>
+    <textarea cols="50" rows="50" [(ngModel)]="myImage"></textarea>
+</div>
