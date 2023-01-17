@@ -1,6 +1,7 @@
 <app-header></app-header>
-<input type="file" (change)="onChange($event)" accept="image/*"/>
-<div *ngIf="myImage">
-    <img [src]="myImage" width="500px" height="500px"/>
-    <textarea cols="50" rows="50" [(ngModel)]="myImage"></textarea>
+    <input type="file" (change)="onChange($event)" accept="image/*" />
+<div  class="col" *ngIf="myImage">
+    <img [src]="myImage" width="500px" height="500px" />
+    <textarea class="col" cols="50" rows="50" [(ngModel)]="myImage"></textarea>
 </div>
+

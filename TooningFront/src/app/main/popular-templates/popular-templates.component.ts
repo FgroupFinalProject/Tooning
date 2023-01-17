@@ -1,28 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Itemplates {
-  src: string,
-  url : string,
+  src: String;
+  url: String;
 }
 
-let templats: Itemplates[] = 
-[{ src: 'assets/img/image1.jpg', url: 'https://tooning.io/canvas-share/152069'},
-{ src: 'assets/img/image2.jpg', url: 'https://tooning.io/canvas-share/152144'},
-{ src: 'assets/img/image3.jpg', url: 'https://tooning.io/canvas-share/1669613'},
-{ src: 'assets/img/image4.jpg', url: 'https://tooning.io/canvas-share/1668001'}
-];
+let templates: Itemplates[];
+templates = [];
+
 
 @Component({
   selector: 'app-popular-templates',
   templateUrl: './popular-templates.component.html',
-  styleUrls: ['./popular-templates.component.css']
+  styleUrls: ['./popular-templates.component.css'],
 })
 export class PopularTemplatesComponent {
+  list: { src: any; url: any }[] | undefined;
 
-list : Itemplates[] | undefined;
+  constructor(private router: Router, private http: HttpClient) {}
 
-constructor(){
-  this.list = templats;
-}
-
+  ngOnInit() {
+    // Simple GET request with response type <any>
+    this.http.get<any>('http://localhost:5000/test').subscribe((data) => {
+      for (let i = 0; i < data.length; i++) {
+        
+        templates.push({ src: data[i].src, url: data[i].url });
+      }
+    });
+    this.list = templates;
+  }
 }
