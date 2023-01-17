@@ -1,11 +1,38 @@
 <app-header></app-header>
-<p>participating works!</p>
-<div>
-    <form action="http://localhost:5000/upload_images" method="post" enctype="multipart/form-data">
+<p>participating works! : 릴레이툰 참가하기!</p>
+
+<div class="container">
+    <form ngNoForm [action]="url" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="exampleFormControlFile1">파일업로드</label>
+            <div class="col">
+                <label for="exampleFormControlFile1">이미지 파일</label>
+                <div class="custom-file">
+                    <input type="file" class="form-control-file" id="fileupload" name="fileupload" (change)="selectFile($event)" />
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="올리기">
+    </form>
+
+    <div *ngIf="img" class="card" style="width: 18rem;">
+        <img [src]="img" class="card-img-top" alt="원본" />
+    </div>
+</div>
+
+<!-- <div>
+    <form ngNoForm [action]="url" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleFormControlFile1">파일 업로드</label>
             <input type="file" class="form-control-file" id="fileupload" name="fileupload">
         </div>
         <input type="submit" value="올리기">
     </form>
-</div>
+    <div *ngIf="img" class="card" style="width: 18rem;">
+        <img [src]="img" class="card-img-top" alt="원본" />
+    </div>
+</div> -->
+
+<!-- <div *ngIf="Image">
+    <img [src]="Image" width="500px" height="500px"/>
+    <textarea cols="50" rows="50" [(ngModel)]="Image"></textarea>
+</div> -->

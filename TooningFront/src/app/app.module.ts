@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule,Routes} from '@angular/router'; //라우터
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ParticipatingWorksComponent } from './participating-works/participating-works.component';
 import { ParticipatingComponent } from './participating/participating.component';
@@ -10,6 +10,7 @@ import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopularTemplatesComponent } from './main/popular-templates/popular-templates.component';
 import { HeaderComponent } from './header/header.component';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 const router : Routes = [
   {path : 'participating-works', component : ParticipatingWorksComponent},
@@ -30,9 +31,10 @@ const router : Routes = [
     BrowserModule,
     RouterModule.forRoot(router,{enableTracing:false}),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [NgxImageCompressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
