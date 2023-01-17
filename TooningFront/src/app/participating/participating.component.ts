@@ -18,6 +18,7 @@ export class ParticipatingComponent {
   ) { }
 
   img: string;
+  postId : any; 
 
   selectFile(e: any) {
     if (e.target.files) {
@@ -30,5 +31,12 @@ export class ParticipatingComponent {
       };
       reader.readAsDataURL(file);
     }
+  }
+
+  ngOnInit() {
+    this.http.get<any>('http://localhost:5000/filepage').subscribe(data => {
+      this.postId = data;
+      console.log(data)
+    })
   }
 }
