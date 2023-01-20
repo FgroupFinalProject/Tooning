@@ -31,4 +31,7 @@ export class PopularTemplatesComponent {
     });
     this.list = templates;
   }
+  ngOnDestroy(){
+    templates = [];
+  }
 }
