@@ -1,6 +1,46 @@
 <app-header></app-header>
 <p>participating works! : 릴레이툰 참가하기!</p>
 
+<div>
+    <table summary="게시판 답글 폼">
+        <caption><b>게시판 답글 폼</b></caption>
+        <colgroup>
+            <col width="100px" />
+            <col width="500px" />
+        </colgroup>
+
+        <tbody>
+            <tr>
+                <th>제목</th>
+                <td>
+                    <input type="text" id="subject" name="subject" maxlength="50" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td>
+                    <input type="text" id="writer" name="writer" maxlength="50" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td>
+                    <input type="password" id="password" name="password" maxlength="50" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea id="contents" name="contents" rows="15" cols="75"></textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        <input type="submit" value="등록" />
+        <input type="button" value="취소" />
+    </p>
+</div>
+
 <div class="container">
     <form ngNoForm [action]="url" method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -8,11 +48,13 @@
                 <label for="exampleFormControlFile1">이미지 파일</label>
                 <div class="custom-file">
                     <!--파일 선택 버튼-->
-                    <input type="file" class="form-control-file" id="fileupload" name="fileupload" (change)="onChange($event)" />
+                    <input type="file" class="form-control-file" id="fileupload" name="fileupload"
+                        (change)="onChange($event)" />
                     <!--이미지를 보이게 하는 곳-->
                     <div *ngIf="img" class="card" style="width: 18rem;">
                         <img [src]="img" class="card-img-top" alt="원본" />
-                        <textarea class="col" cols="50" rows="50" id="base64" name="base64" [(ngModel)]="img" hidden></textarea>
+                        <textarea class="col" cols="50" rows="50" id="base64" name="base64" [(ngModel)]="img"
+                            hidden></textarea>
                     </div>
                 </div>
             </div>
@@ -22,7 +64,7 @@
     </form>
 </div>
 
-<div class="test">
+<!-- <div class="test">
     <div>Post Id: {{postId}}</div>
-    <!-- <img [src]="imgSource" /> -->
-</div>
+    <img [src]="imgSource" />
+</div> -->

@@ -12,15 +12,14 @@ export class ParticipatingComponent {
 
   //이미지 업로드 위한 백서버
   url = "http://localhost:5000/upload_images";
+  img: string;
+  postId : any; 
+  base64code!: any;
 
   constructor(
     private router: Router,
     private http: HttpClient
   ) { }
-
-  img: string;
-  postId : any; 
-  base64code!: any;
 
   onChange = ($event: Event) =>  {
     const target = $event.target as HTMLInputElement;
@@ -30,6 +29,7 @@ export class ParticipatingComponent {
     this.convertToBase64(file);
   };
 
+  //이미지 base64로 인코딩
   convertToBase64(file: File) {
     const observable = new Observable((subscriber: Subscriber<any>) => {
       this.readFile(file, subscriber);
