@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-participating',
@@ -19,18 +20,42 @@ export class ParticipatingComponent {
 
   img: string;
   postId : any; 
+  base64code!: any;
 
-  selectFile(e: any) {
-    if (e.target.files) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
+  onChange = ($event: Event) =>  {
+    const target = $event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    console.log(file);
 
-      reader.onload = async (event: any) => {
-        // base64 image
-        this.img = event.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
+    this.convertToBase64(file);
+  };
+
+  convertToBase64(file: File) {
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+
+    observable.subscribe((d) => {
+      console.log(d);
+      this.img = d;
+      this.base64code = d;
+    });
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>) {
+    const filereader = new FileReader();
+
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      subscriber.next(filereader.result);
+
+      subscriber.complete();
+    };
+    filereader.onerror = () => {
+      subscriber.error();
+      subscriber.complete();
+    };
   }
 
   ngOnInit() {
