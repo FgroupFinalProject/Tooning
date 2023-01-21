@@ -7,21 +7,19 @@
             <div class="col">
                 <label for="exampleFormControlFile1">이미지 파일</label>
                 <div class="custom-file">
+                    <!--파일 선택 버튼-->
                     <input type="file" class="form-control-file" id="fileupload" name="fileupload" (change)="onChange($event)" />
+                    <!--이미지를 보이게 하는 곳-->
                     <div *ngIf="img" class="card" style="width: 18rem;">
                         <img [src]="img" class="card-img-top" alt="원본" />
-                        <textarea class="col" cols="50" rows="50" id="base64" name="base64" [(ngModel)]="img"></textarea>
+                        <textarea class="col" cols="50" rows="50" id="base64" name="base64" [(ngModel)]="img" hidden></textarea>
                     </div>
                 </div>
             </div>
         </div>
-        <input type="submit" value="올리기">
+        <!--파일 올리기 버튼-->
+        <input type="submit" value="UPLOAD">
     </form>
-
-    <!-- <div *ngIf="img" class="card" style="width: 18rem;">
-        <img [src]="img" class="card-img-top" alt="원본" />
-        <textarea class="col" cols="50" rows="50" id="base64" name="base64" [(ngModel)]="img"></textarea>
-    </div> -->
 </div>
 
 <div class="test">

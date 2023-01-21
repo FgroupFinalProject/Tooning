@@ -59,7 +59,7 @@ export class ParticipatingComponent {
   }
 
   ngOnInit() {
-    this.http.get<any>('http://localhost:5000/filepage').subscribe(data => {
+    this.http.get<any>('http://localhost:5000/images').subscribe(data => {
       this.postId = data;
       console.log(data)
     })
