@@ -36,15 +36,18 @@ export class ParticipatingWorksComponent {
     looks: any;
   }[] | undefined;
 
-  goToParticipantDetail() {
-    this.router.navigate(['/relay-participant-detail-page'])
+  boardId : any
+
+  goToParticipantDetail(item : IBoardList) {
+    //console.log(item.idx)
+    this.router.navigate(['/relay-participant-detail-page', {item: item.idx}])
   }
 
   ngOnInit() {
     this.http.get<any>('http://localhost:5000/board_list').subscribe(data => {
-      // this.postId = data;
       console.log(data)
-      for(let i = 0; i< data.length; i++) {
+
+      for (let i = 0; i < data.length; i++) {
         boardList.push({
           idx: data[i].rp_id,
           img: data[i].rp_img,
