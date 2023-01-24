@@ -10,13 +10,13 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class ParticipatingComponent {
 
-  //이미지 업로드 위한 백서버
+  //게시물 업로드 위한 백서버 주소
   url = "http://localhost:5000/board_insert";
   img: string;
   base64code!: any;
   
   //test
-  postId : any; 
+  //postId : any; 
 
   constructor(
     private router: Router,
@@ -58,6 +58,11 @@ export class ParticipatingComponent {
       subscriber.error();
       subscriber.complete();
     };
+  }
+
+  //취소버튼 : 메인페이지로 이동
+  goToMain() {
+    this.router.navigate(['/main'])
   }
 
   // ngOnInit() {

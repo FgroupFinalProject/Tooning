@@ -11,8 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PopularTemplatesComponent } from './main/popular-templates/popular-templates.component';
 import { HeaderComponent } from './header/header.component';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import { RelayParticipantDetailPageComponent } from './relay-participant-detail-page/relay-participant-detail-page.component';
+import { PageTitleComponent } from './page-title/page-title.component';
 
 const router : Routes = [
+  {path : 'relay-participant-detail-page', component : RelayParticipantDetailPageComponent},
   {path : 'participating-works', component : ParticipatingWorksComponent},
   {path : 'participating', component : ParticipatingComponent},
   {path : 'main', component : MainComponent},
@@ -25,7 +28,9 @@ const router : Routes = [
     ParticipatingComponent,
     MainComponent,
     PopularTemplatesComponent,
-    HeaderComponent
+    HeaderComponent,
+    RelayParticipantDetailPageComponent,
+    PageTitleComponent
   ],
   imports: [
     BrowserModule,
