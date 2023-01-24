@@ -3,41 +3,51 @@
 </div> -->
 <app-header></app-header>
 <div class="container text-center">
-    <div class="row">
-        <h1>안녕하세요!<br>
+    <div id="container">
+     
+    <div class="section">
+        <strong>안녕하세요!<br>
             모두를 위한<br>
-            스퀘어입니다.</h1>
+            스퀘어입니다.</strong>
     </div>
-    <br>
-    <div class="row">
-        <h2>릴레이툰<br>
+    <div class="section">
+        <strong>릴레이툰<br>
             제시된 주제로<br>
-            이어질 한 컷을 만들어보세요!</h2>
+            이어질 한 컷을 만들어보세요!</strong>
     </div>
-    <br>
-    <div class="row">
-        <h2>12월 31일까지 응모가능</h2>
+    <div class="section">
+        <strong>12월 31일까지 응모가능</strong>
     </div>
-
-    <div class="col">
-        <button (click)="participatingWorks()" class="btn btn-secondary"> 참가작보기 </button>
+    <div class="section">
+        <strong>단계_01<br>
+        참가 릴레이툰 선택하여 제작</strong>
     </div>
-
-<br>
-
-    <div class="col">
-        <button (click)="participating()" class="btn btn-secondary"> 참가하기 </button>
+    <div class="section row">
+        <div class="row">
+        <strong>단계_02<br>
+            아래 신청서 작성</strong>
+        </div>
+            <div class="row">
+            <div class="col">
+                <button (click)="participatingWorks()" class="w-btn-neon2"> 참가작보기 </button>
+            </div>
+            <div class="col">
+                <button (click)="participating()" class="w-btn-neon2"> 참가하기 </button>
+            </div>
+        </div>
     </div>
-
-
-    <div class="row">
-        <h2>인기템플릿</h2>
-    </div>
-    <br>
+    
+</div>
+<div class="section row">
+    <strong style="width: auto;">인기템플릿</strong>
     <app-popular-templates></app-popular-templates>
+</div>
 
 
+    
 
-    <div class="test">
-        <div>Post Id: {{postId}}</div>
-    </div>
+
+    
+
+
+   
