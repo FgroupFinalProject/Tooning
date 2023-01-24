@@ -37,6 +37,7 @@ export class ParticipatingWorksComponent {
   }[] | undefined;
 
   boardId : any
+  like_url : any
 
   goToParticipantDetail(item : IBoardList) {
     //console.log(item.idx)

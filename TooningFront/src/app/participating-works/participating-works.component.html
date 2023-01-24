@@ -1,21 +1,20 @@
 <app-header></app-header>
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
 <div class="container text-center">
-
-    <div *ngFor="let item of boardList" class="col">
-        <div class="card shadow-2dp" (click)="goToParticipantDetail(item)">
-            <img id="pic-container" cImg fluid src="{{item.img}}" />
-            <div id="caption">
-                <p id="rp_id" name="rp_id" hidden>{{item.idx}}</p>
-                <p id="description">{{item.title}}</p>
-                <p id="description">{{item.writer}}</p>
-                <p id="description">{{item.date}}</p>
-                <p id="description">{{item.like}}</p>
-                <p id="description">{{item.looks}}</p>
+    <span>🧸릴레이툰 참가작🧸</span>
+    <article class="container grid-container">
+        <!-- Using Flexbox, text in the html is coded before images for accessibility purposes. With 'display: flex;' on the parent element, 'order: -1;' can be used on the child element to position images before the text for screen presentation -->
+        <div *ngFor="let item of boardList">
+            <div class="card shadow-2dp" (click)="goToParticipantDetail(item)">
+                <img class="card__img" id="pic-container" cImg fluid src="{{item.img}}" />
+                <div id="caption">
+                    <p name="rp_id" hidden>{{item.idx}}</p>
+                    <h1>{{item.title}}</h1>
+                    <p>작성자 : {{item.writer}}</p>
+                    <p>{{item.date}}</p>
+                    <p>좋아요 수 : {{item.like}}</p>
+                </div>
             </div>
         </div>
-    </div>
-
+    </article>
 </div>

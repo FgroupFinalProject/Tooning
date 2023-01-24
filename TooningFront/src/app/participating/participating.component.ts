@@ -3,6 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 
+interface ITempletsList {
+  idx: Number;
+  img: String;
+  link: String;
+}
+
+let templetsList: ITempletsList[];
+templetsList = [];
+
 @Component({
   selector: 'app-participating',
   templateUrl: './participating.component.html',
@@ -14,9 +23,6 @@ export class ParticipatingComponent {
   url = "http://localhost:5000/board_insert";
   img: string;
   base64code!: any;
-
-  //test
-  //postId : any; 
 
   constructor(
     private router: Router,
@@ -68,10 +74,29 @@ export class ParticipatingComponent {
     }
   }
 
-  // ngOnInit() {
-  //   this.http.get<any>('http://localhost:5000/images').subscribe(data => {
-  //     this.postId = data;
-  //     console.log(data)
-  //   })
-  // }
+  templetsList: {
+    idx: Number;
+    img: String;
+    link: String;
+  }[] | undefined;
+
+  ngOnInit() {
+    this.http.get<any>('http://localhost:5000/templets').subscribe(data => {
+      console.log(data)
+
+      for (let i = 0; i < data.length; i++) {
+        templetsList.push({
+          idx: data[i].rt_id,
+          img: data[i].src,
+          link: data[i].url,
+        });
+      }
+    });
+    this.templetsList = templetsList;
+  }
+
+  ngOnDestroy() {
+    templetsList = [];
+    console.log("participating-works page end")
+  }
 }
