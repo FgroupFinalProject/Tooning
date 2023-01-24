@@ -1,55 +1,50 @@
 <app-header></app-header>
-<p>게시글 수정하기</p>
 
-<div>
+<div class="container text-center">
     <form ngNoForm [action]="url" method="post" enctype="multipart/form-data">
-        <table summary="게시판 답글 폼">
-            <!-- <caption><b>게시판 답글 폼</b></caption> -->
-            <colgroup>
-                <col width="100px" />
-                <col width="500px" />
-            </colgroup>
+        <span>게시글 수정하기</span>
+        <div class="form__group field">
+            <input class="form__field" placeholder="Name" type="text" id="title" name="title" maxlength="50" value="{{this.title}}" />
+            <label for="Name" class="form__label">제목</label>
+        </div>
 
-            <tbody>
-                <tr>
-                    <th>제목</th>
-                    <td>
-                        <input type="text" id="title" name="title" maxlength="50" value="{{this.title}}"/>
-                    </td>
-                </tr>
-                <tr>
-                    <th>작성자 아이디</th>
-                    <td>
-                        <p type="text" id="writer" name="writer" maxlength="50" value="" >{{this.writer}}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <textarea id="contents" name="contents" rows="15" cols="75">{{this.content}}</textarea>
-                    </td>
-                </tr>
-                <div class="form-group">
+        <div class="form__group field">
+            <input class="form__field" placeholder="Name" type="text" id="writer" name="writer" maxlength="50"
+                value="{{this.writer}}" disabled/>
+            <label for="Name" class="form__label">아이디</label>
+        </div>
+
+        <div class="row form-floating" style="margin-top: 30px;">
+            <textarea class="form-control" placeholder="Leave a comment here" id="contents" name="contents" rows="5" cols="70">{{this.content}}</textarea>
+            <label class="form__label" for="floatingTextarea">작품설명</label>
+        </div>
+        <div class="form-group">
+            <div class="col">
+                <div class="row" style="margin-top: 30px;">
+                    <!--파일 선택 버튼-->
                     <div class="col">
-                        <label for="exampleFormControlFile1">이미지 파일</label>
-                        <div class="custom-file">
-                            <!--파일 선택 버튼-->
-                            <input type="file" class="form-control-file" id="fileupload" name="fileupload"
-                                (change)="onChange($event)" />
-                            <!--이미지를 보이게 하는 곳-->
-                            <div *ngIf="img" class="card" style="width: 18rem;">
-                                <img [src]="img" class="card-img-top" alt="원본" />
-                                <textarea class="col" cols="50" rows="50" id="base64" name="base64" [(ngModel)]="img"
-                                    hidden></textarea>
-                            </div>
-                        </div>
+                    <label class="w-btn-outline" for="fileupload">
+                        이미지 업로드
+                      </label>
+                    <input type="file" class="form-control-file" id="fileupload" name="fileupload" style="display:none"
+                        (change)="onChange($event)" />
+                    </div>
+                    <!--이미지를 보이게 하는 곳-->
+                    <div class="imgbox col">
+                    <div *ngIf="img" class="card" style="width: 300px;">
+                        <img [src]="img" class="card-img-top" alt="원본" />
+                        <textarea class="col" cols="50" rows="50" id="base64" name="base64" [(ngModel)]="img"
+                            hidden></textarea>
                     </div>
                 </div>
-            </tbody>
-        </table>
-        <p>
-            <input type="submit" value="수정하기" />
-            <input type="button" (click)="goToParticipantPage()" value="취소" />
-        </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <input class="col w-btn" type="submit" value="수정" />
+            <input class="col w-btn" type="button" (click)="goToParticipantPage()" value="취소" />
+        </div>
     </form>
 </div>
 

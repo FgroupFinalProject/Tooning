@@ -1,11 +1,8 @@
 <app-header></app-header>
+
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-<div class="relay_participantPage_title">
-    <h2>릴레이툰 참가작</h2>
-</div>
-
-<div class="container">
+<div class="container text-center">
 
     <div *ngFor="let item of boardList" class="col">
         <div class="card shadow-2dp" (click)="goToParticipantDetail(item)">
