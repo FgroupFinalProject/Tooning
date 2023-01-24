@@ -14,24 +14,38 @@
             <tr>
                 <th>제목</th>
                 <td>
-                    <input type="text" id="title" name="title" maxlength="50" value="" />
+                    <p type="text" id="title" name="title" maxlength="50" value="">{{this.title}}</p>
                 </td>
             </tr>
             <tr>
-                <th>작성자 아이디</th>
+                <th>작성자</th>
                 <td>
-                    <input type="text" id="writer" name="writer" maxlength="50" value="" />
+                    <p type="text" id="writer" name="writer" maxlength="50" value="">{{this.writer}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>작성 날짜</th>
+                <td>
+                    <p type="text" id="date" name="date" maxlength="50" value="">{{this.date}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="{{this.img}}" style="width: 500px; height: 500px;" />
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <textarea id="contents" name="contents" rows="15" cols="75"></textarea>
+                    <textarea id="contents" name="contents" rows="15" cols="75">{{this.content}}</textarea>
                 </td>
             </tr>
+
         </tbody>
     </table>
     <p>
-        <input type="submit" value="등록" />
+        <input type="button" (click)="goToParticipatingModify()"value="수정하기" />
+        <input type="button" value="삭제하기" />
+        <input type="button" (click)="goToParticipatingWorks()" value="목록으로" />
     </p>
 
 </div>
