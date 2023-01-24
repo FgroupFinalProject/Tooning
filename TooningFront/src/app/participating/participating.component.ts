@@ -11,10 +11,12 @@ import { Observable, Subscriber } from 'rxjs';
 export class ParticipatingComponent {
 
   //이미지 업로드 위한 백서버
-  url = "http://localhost:5000/upload_images";
+  url = "http://localhost:5000/board_insert";
   img: string;
-  postId : any; 
   base64code!: any;
+  
+  //test
+  postId : any; 
 
   constructor(
     private router: Router,
@@ -58,10 +60,10 @@ export class ParticipatingComponent {
     };
   }
 
-  ngOnInit() {
-    this.http.get<any>('http://localhost:5000/images').subscribe(data => {
-      this.postId = data;
-      console.log(data)
-    })
-  }
+  // ngOnInit() {
+  //   this.http.get<any>('http://localhost:5000/images').subscribe(data => {
+  //     this.postId = data;
+  //     console.log(data)
+  //   })
+  // }
 }
