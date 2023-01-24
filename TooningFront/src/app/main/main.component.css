@@ -22,7 +22,7 @@
 
 #container {
     scroll-snap-type: y mandatory;
-    height: 600px;
+    height: 100vh;
     overflow-y: scroll;
 }
 #container::-webkit-scrollbar{
@@ -30,7 +30,7 @@
   }
 .section {
     scroll-snap-align: start;
-    height: 600px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
