@@ -14,7 +14,7 @@ export class ParticipatingComponent {
   url = "http://localhost:5000/board_insert";
   img: string;
   base64code!: any;
-  
+
   //test
   //postId : any; 
 
@@ -23,7 +23,7 @@ export class ParticipatingComponent {
     private http: HttpClient
   ) { }
 
-  onChange = ($event: Event) =>  {
+  onChange = ($event: Event) => {
     const target = $event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
     console.log(file);
@@ -62,7 +62,10 @@ export class ParticipatingComponent {
 
   //취소버튼 : 메인페이지로 이동
   goToMain() {
-    this.router.navigate(['/main'])
+    var cancel_alert = confirm('지금 취소하시면 지금까지의 내용은 저장되지 않습니다. \n정말 취소하시겠습니까?')
+    if (cancel_alert == true) {
+      this.router.navigate(['/main'])
+    }
   }
 
   // ngOnInit() {

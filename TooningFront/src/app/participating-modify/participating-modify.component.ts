@@ -64,8 +64,11 @@ export class ParticipatingModifyComponent {
   }
 
   //취소버튼 : 참가자 목록 페이지로 이동
-  goToParticipantPage() {
-    this.router.navigate(['/participating-works'])
+  goToParticipantPage(){
+    var cancel_alert = confirm('지금 취소하시면 지금까지의 내용은 저장되지 않습니다. \n정말 취소하시겠습니까?')
+    if(cancel_alert == true) {
+      this.router.navigate(['/participating-works'])
+    }
   }
 
   ngOnInit() {

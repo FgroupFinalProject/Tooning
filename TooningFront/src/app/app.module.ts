@@ -12,7 +12,6 @@ import { PopularTemplatesComponent } from './main/popular-templates/popular-temp
 import { HeaderComponent } from './header/header.component';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { RelayParticipantDetailPageComponent } from './relay-participant-detail-page/relay-participant-detail-page.component';
-import { PageTitleComponent } from './page-title/page-title.component';
 import { ParticipatingModifyComponent } from './participating-modify/participating-modify.component';
 
 const router : Routes = [
@@ -32,7 +31,6 @@ const router : Routes = [
     PopularTemplatesComponent,
     HeaderComponent,
     RelayParticipantDetailPageComponent,
-    PageTitleComponent,
     ParticipatingModifyComponent
   ],
   imports: [
