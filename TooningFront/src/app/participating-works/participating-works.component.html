@@ -11,7 +11,7 @@
         <div class="card shadow-2dp" (click)="goToParticipantDetail(item)">
             <img id="pic-container" cImg fluid src="{{item.img}}" />
             <div id="caption">
-                <p id="rp_id" name="rp_id">{{item.idx}}</p>
+                <p id="rp_id" name="rp_id" hidden>{{item.idx}}</p>
                 <p id="description">{{item.title}}</p>
                 <p id="description">{{item.writer}}</p>
                 <p id="description">{{item.date}}</p>
