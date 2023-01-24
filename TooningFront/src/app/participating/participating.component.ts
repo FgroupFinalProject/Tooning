@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-participating',
@@ -9,34 +10,65 @@ import { Router } from '@angular/router';
 })
 export class ParticipatingComponent {
 
-  //이미지 업로드 위한 백서버
-  url = "http://localhost:5000/upload_images";
+  //게시물 업로드 위한 백서버 주소
+  url = "http://localhost:5000/board_insert";
+  img: string;
+  base64code!: any;
+  
+  //test
+  //postId : any; 
 
   constructor(
     private router: Router,
     private http: HttpClient
   ) { }
 
-  img: string;
-  postId : any; 
+  onChange = ($event: Event) =>  {
+    const target = $event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    console.log(file);
 
-  selectFile(e: any) {
-    if (e.target.files) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
+    this.convertToBase64(file);
+  };
 
-      reader.onload = async (event: any) => {
-        // base64 image
-        this.img = event.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
+  //이미지 base64로 인코딩
+  convertToBase64(file: File) {
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+
+    observable.subscribe((d) => {
+      console.log(d);
+      this.img = d;
+      this.base64code = d;
+    });
   }
 
-  ngOnInit() {
-    this.http.get<any>('http://localhost:5000/filepage').subscribe(data => {
-      this.postId = data;
-      console.log(data)
-    })
+  readFile(file: File, subscriber: Subscriber<any>) {
+    const filereader = new FileReader();
+
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      subscriber.next(filereader.result);
+
+      subscriber.complete();
+    };
+    filereader.onerror = () => {
+      subscriber.error();
+      subscriber.complete();
+    };
   }
+
+  //취소버튼 : 메인페이지로 이동
+  goToMain() {
+    this.router.navigate(['/main'])
+  }
+
+  // ngOnInit() {
+  //   this.http.get<any>('http://localhost:5000/images').subscribe(data => {
+  //     this.postId = data;
+  //     console.log(data)
+  //   })
+  // }
 }
