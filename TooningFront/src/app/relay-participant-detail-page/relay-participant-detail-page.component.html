@@ -1,1 +1,37 @@
 <app-header></app-header>
+<p>참가작 상세 페이지</p>
+
+<div>
+
+    <table summary="게시판 답글 폼">
+        <!-- <caption><b>게시판 답글 폼</b></caption> -->
+        <colgroup>
+            <col width="100px" />
+            <col width="500px" />
+        </colgroup>
+
+        <tbody>
+            <tr>
+                <th>제목</th>
+                <td>
+                    <input type="text" id="title" name="title" maxlength="50" value="" />
+                </td>
+            </tr>
+            <tr>
+                <th>작성자 아이디</th>
+                <td>
+                    <input type="text" id="writer" name="writer" maxlength="50" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea id="contents" name="contents" rows="15" cols="75"></textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        <input type="submit" value="등록" />
+    </p>
+
+</div>
