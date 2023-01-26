@@ -39,7 +39,7 @@
 }
 strong{
     text-align: left;
-    width: 650px;
+    width: 700px;
     font-family: 'GmarketSansMedium';
 }
 p{
@@ -108,6 +108,13 @@ p{
     left: 50%;
     transform: translate(-50%, -50%);
     animation: ring 1.5s infinite;
+}
+
+.stage{
+    margin-top: 250px;
+}
+.stage-bottom{
+    margin-bottom: 250px;
 }
 
 
