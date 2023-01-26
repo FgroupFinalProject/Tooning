@@ -16,6 +16,7 @@ import { ParticipatingModifyComponent } from './participating-modify/participati
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { CommentsComponent } from './comments/comments.component';
 const router : Routes = [
   {path : 'participating-modify', component : ParticipatingModifyComponent},
   {path : 'relay-participant-detail-page', component : RelayParticipantDetailPageComponent},
@@ -34,6 +35,7 @@ const router : Routes = [
     HeaderComponent,
     RelayParticipantDetailPageComponent,
     ParticipatingModifyComponent,
+    CommentsComponent,
   
   ],
   imports: [
