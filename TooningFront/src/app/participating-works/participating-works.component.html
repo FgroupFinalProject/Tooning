@@ -3,19 +3,30 @@
 <div class="container text-center">
     <span>🧸릴레이툰 참가작🧸</span>
     <article id="main" class="container row">
+        <form ngNoForm [action]="work_id_url" method="get" enctype="multipart/form-data">
+            <div class="form__group field">
+                <select class="form__field" name="templets">
+                    <option value="">작품 번호 별 조회</option>
+                    <option *ngFor="let temp of templetsList" [value]="temp.idx">
+                            {{temp.idx}}번 - {{temp.title}}
+                    </option>
+                </select>
+                <input type="submit">
+            </div>
+        </form>
         <!-- Using Flexbox, text in the html is coded before images for accessibility purposes. With 'display: flex;' on the parent element, 'order: -1;' can be used on the child element to position images before the text for screen presentation -->
         <section class="col">
-            <h1 style="text-align: left;">1번</h1>
+            <!-- <h1 style="text-align: left;">1번</h1> -->
             <hr class="line">
             <div class="first row row-cols-3">
                 <div class="col-4" *ngFor="let item of boardList">
 
-                    <div class="box" (click)="goToParticipantDetail(item)">
+                    <div class="box" (click)="goToParticipantDetail(item)" style="margin-bottom: 30px;">
                         <img class="card__img" cImg fluid src="{{item.img}}" />
                         <div>
                             <p name="rp_id" hidden>{{item.idx}}</p>
                             <p><strong>{{item.title}}</strong></p>
-                            <hr>
+                            <hr style="margin-bottom: 10px;">
                             <p>{{item.writer}}</p>
                             <p>{{item.date}}</p>
                             <p>조회 : {{item.looks}}</p>
@@ -25,27 +36,5 @@
                 </div>
             </div>
         </section>
-        <section class="col">
-            <h1 style="text-align: left;">2번</h1>
-            <hr class="line">
-            <div class="first row row-cols-3">
-                <div class="col-4" *ngFor="let item of boardList">
-
-                    <div class="box" (click)="goToParticipantDetail(item)">
-                        <img class="card__img" cImg fluid src="{{item.img}}" />
-                        <div>
-                            <p name="rp_id" hidden>{{item.idx}}</p>
-                            <p><strong>{{item.title}}</strong></p>
-                            <hr>
-                            <p>{{item.writer}}</p>
-                            <p>{{item.date}}</p>
-                            <p>조회 : {{item.looks}}</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
     </article>
 </div>

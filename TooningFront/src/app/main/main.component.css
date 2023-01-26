@@ -42,6 +42,11 @@ strong{
     width: 650px;
     font-family: 'GmarketSansMedium';
 }
+p{
+    text-align: center;
+    font-family: 'GmarketSansMedium';
+    font-size: 30px;
+}
 
 @keyframes ring {
     0% {

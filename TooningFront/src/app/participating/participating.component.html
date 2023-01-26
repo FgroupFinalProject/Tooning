@@ -20,7 +20,7 @@
             <select class="form__field" name="templets">
                 <option value="">참가하는 릴레이툰 선택</option>
                 <option *ngFor="let item of templetsList" [value]="item.idx">
-                    {{item.idx}}번 - {{item.link}}
+                    {{item.idx}}번 - {{item.title}}
                 </option>
             </select>
         </div>

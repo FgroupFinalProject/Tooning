@@ -6,7 +6,7 @@ import { Observable, Subscriber } from 'rxjs';
 interface ITempletsList {
   idx: Number;
   img: String;
-  link: String;
+  title: String;
 }
 
 let templetsList: ITempletsList[];
@@ -77,7 +77,7 @@ export class ParticipatingComponent {
   templetsList: {
     idx: Number;
     img: String;
-    link: String;
+    title: String;
   }[] | undefined;
 
   ngOnInit() {
@@ -88,7 +88,7 @@ export class ParticipatingComponent {
         templetsList.push({
           idx: data[i].rt_id,
           img: data[i].src,
-          link: data[i].url,
+          title: data[i].rt_title,
         });
       }
     });
