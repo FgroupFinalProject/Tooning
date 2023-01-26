@@ -40,7 +40,7 @@ body {
 header,
 section {
     text-align: center;
-    padding: 4rem 1rem 5rem;
+    padding: 0rem 1rem 5rem;
 }
 
 /* TYPOGRAPHY */
@@ -103,7 +103,7 @@ li {
 
 
 .box {
-    width: 134px;
+    width: 240px;
     text-align: left;
     background: #fff;
     height: auto;
@@ -119,8 +119,8 @@ li {
     -ms-grid-row-align: center;
     align-self: center;
     margin-bottom: 1rem;
-    height: 132px;
-    width: 132px;
+    height: 250px;
+    width: 250px;
 }
 p{
     padding: 0px;

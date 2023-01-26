@@ -1,36 +1,39 @@
 <div style="text-align: left;">
-<p>댓글()</p>
-<hr>
-</div>
-
-<div class="comments-box">
-    <!-- 닉네임 -->
-    <p><strong>닉네임</strong></p>
-    <!-- 댓글내용 -->
-    <p>댓글내용</p>
-    <!-- 날짜 -->
-    <p>날짜</p>
-    <button class="menu" [matMenuTriggerFor]="menu">
-        <mat-icon> list </mat-icon>
-    </button>
+    <p>댓글()</p>
     <hr>
 </div>
 
-<div class="writing-box row row-col-6">
-    <div class="form__group field col-2">
-        <input class="form__field" placeholder="Name" type="text" id="title" name="title" maxlength="50" value="" />
-        <label for="Name" class="form__label">닉네임</label>
-    </div>
-    <div class="col-10">    
-        <textarea class="form-control" placeholder="댓글을 남겨보세요" id="contents" name="contents" rows="2"
-            cols="50"></textarea>
-    </div>
-    <div class="comment-button">
-        <input class="w-btn" type="submit" value="댓글 등록" />
+<div class="comments-box">
+    <div class="col-4" *ngFor="let comm of commentList">
+        <!-- 닉네임 -->
+        <p><strong>닉네임</strong> {{comm.writer}} </p>
+        <!-- 댓글내용 -->
+        <p>댓글내용</p> {{comm.content}}
+        <!-- 날짜 -->
+        <p>날짜</p> {{comm.date}}
+        <button class="menu" [matMenuTriggerFor]="menu">
+            <mat-icon> list </mat-icon>
+        </button>
+        <hr>
     </div>
 </div>
 
+<div class="writing-box row row-col-6">
+    <form ngNoForm [action]="comment_insert_url" method="post" enctype="multipart/form-data">
+        <div class="form__group field col-2">
+            <input class="form__field" placeholder="Name" type="text" name="title" maxlength="50" value="" />
+            <label for="Name" class="form__label">닉네임</label>
+        </div>
+        <div class="col-10">
+            <textarea class="form-control" placeholder="댓글을 남겨보세요" name="contents" rows="2" cols="50"></textarea>
+        </div>
+        <div class="comment-button">
+            <input class="w-btn" type="submit" value="댓글 등록" />
+        </div>
+    </form>
+</div>
+
 <mat-menu class="mat" #menu="matMenu">
-    <input mat-menu-item type="button"  value="수정하기" />
-    <input mat-menu-item type="submit"  value="삭제하기" />
+    <input mat-menu-item type="button" value="수정하기" />
+    <input mat-menu-item type="submit" value="삭제하기" />
 </mat-menu>

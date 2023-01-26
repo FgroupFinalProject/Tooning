@@ -20,17 +20,16 @@
     <img src="{{this.rt_img}}" style="width: 500px; height: 500px;" />
     <img src="{{this.img}}" style="width: 500px; height: 500px;" />
     <div class="content">
-        <p>{{this.content}}</p> 
+        <p>{{this.content}}</p>
     </div>
-
     <app-comments></app-comments>
-    <form ngNoForm [action]="delete_url" method="get" enctype="multipart/form-data">
-        <div class="row">
-        </div>
-    </form>
 </div>
+
+
 <div style="height: 100px;"></div>
 <mat-menu class="mat" #menu="matMenu">
     <input mat-menu-item type="button" (click)="modifyAlert()" value="수정하기" />
-    <input mat-menu-item type="submit" (click)="deleteAlert()" value="삭제하기" />
+    <form ngNoForm [action]="delete_url" method="get" enctype="multipart/form-data">
+        <input mat-menu-item type="submit" (click)="deleteAlert()" value="삭제하기" />
+    </form>
 </mat-menu>
