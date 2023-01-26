@@ -58,12 +58,13 @@ export class RelayParticipantDetailPageComponent {
   img: any
   content: string
   looks: any
+  rt_img:any
 
   ngOnInit() {
     this.boardId = this.route.snapshot.paramMap.get('item')
     console.log(this.boardId)
     this.http.get<any>('http://localhost:5000/board_detail/' + this.boardId).subscribe(data => {
-      console.log(data[0])
+      console.log(data)
       this.title = data[0].rp_title;
       this.writer = data[0].rp_part_id;
       this.date = data[0].rp_date;
@@ -71,12 +72,11 @@ export class RelayParticipantDetailPageComponent {
       this.content = data[0].rp_content;
       this.boardPasswd = data[0].rp_passwd;
       this.looks = data[0].rp_looks;
+      this.rt_img = data[0].rt_img;
     });
   }
 
   ngOnDestroy() {
     console.log("participating-works page end")
-  }
-
-  
+  }  
 }

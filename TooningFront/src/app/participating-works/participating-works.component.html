@@ -3,17 +3,15 @@
 <div class="container text-center">
     <span>🧸릴레이툰 참가작🧸</span>
     <article id="main" class="container row">
-        <form ngNoForm [action]="work_id_url" method="get" enctype="multipart/form-data">
-            <div class="form__group field">
-                <select class="form__field" name="templets">
-                    <option value="">작품 번호 별 조회</option>
-                    <option *ngFor="let temp of templetsList" [value]="temp.idx">
-                            {{temp.idx}}번 - {{temp.title}}
-                    </option>
-                </select>
-                <input type="submit">
-            </div>
-        </form>
+        <div class="form__group field">
+            <select class="form__field" name="templets">
+                <option value="">작품 번호 별 조회</option>
+                <option *ngFor="let temp of templetsList" [value]="temp.idx">
+                    {{temp.idx}}번 - {{temp.title}}
+                </option>
+            </select>
+            <input type="submit">
+        </div>
         <!-- Using Flexbox, text in the html is coded before images for accessibility purposes. With 'display: flex;' on the parent element, 'order: -1;' can be used on the child element to position images before the text for screen presentation -->
         <section class="col">
             <!-- <h1 style="text-align: left;">1번</h1> -->
