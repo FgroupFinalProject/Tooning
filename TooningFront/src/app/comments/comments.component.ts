@@ -7,7 +7,7 @@ interface ICommentList {
   writer: String;
   date: String;
   content: String;
-  passwd: String;
+  commentPasswd: String;
 }
 
 let commentList: ICommentList[];
@@ -30,11 +30,28 @@ export class CommentsComponent {
     writer: String;
     date: String;
     content: String;
-    passwd: String;
+    commentPasswd: String;
   }[] | undefined;
 
   boardId: any
   comment_insert_url: string
+
+  //삭제하기 버튼
+  commentPasswd : any;
+  delete_url : string
+
+  deleteAlert() {
+    this.delete_url = 'http://localhost:5000/comment_delete/' + this.boardId
+    alert('삭제되었습니다.')
+    // var delete_alert = confirm('정말 삭제하시겠습니까?')
+    // if(delete_alert == true) {
+    //   var passwd = prompt('게시물의 비밀번호를 입력하세요')
+    //   if(passwd == this.commentPasswd){
+    //   }else{
+    //     alert('비밀번호가 일치하지 않습니다.')
+    //   }
+    // }
+  }
 
   ngOnInit() {
     this.boardId = this.route.snapshot.paramMap.get('item')
@@ -51,7 +68,7 @@ export class CommentsComponent {
           writer: data[i].comment_nickname,
           date: data[i].comment_date,
           content: data[i].comment_content,
-          passwd: data[i].comment_pwd,
+          commentPasswd: data[i].comment_pwd,
         });
       }
     });

@@ -5,6 +5,7 @@
 
 <div class="comments-box">
     <div class="col-4" *ngFor="let comm of commentList">
+        <p hidden>{{comm.idx}}</p>
         <!-- 닉네임 -->
         <p><strong>닉네임</strong> {{comm.writer}} </p>
         <!-- 댓글내용 -->
@@ -18,8 +19,8 @@
     </div>
 </div>
 
-<div class="writing-box row row-col-6">
-    <form ngNoForm [action]="comment_insert_url" method="post" enctype="multipart/form-data">
+<form ngNoForm [action]="comment_insert_url" method="post" enctype="multipart/form-data">
+    <div class="writing-box row row-col-6">
         <div class="form__group field col-2">
             <input class="form__field" placeholder="Name" type="text" name="title" maxlength="50" value="" />
             <label for="Name" class="form__label">닉네임</label>
@@ -30,10 +31,12 @@
         <div class="comment-button">
             <input class="w-btn" type="submit" value="댓글 등록" />
         </div>
-    </form>
-</div>
+    </div>
+</form>
 
 <mat-menu class="mat" #menu="matMenu">
     <input mat-menu-item type="button" value="수정하기" />
-    <input mat-menu-item type="submit" value="삭제하기" />
+    <form ngNoForm [action]="delete_url" method="get" enctype="multipart/form-data">
+        <input mat-menu-item type="submit" (click)="deleteAlert()" value="삭제하기" />
+    </form>
 </mat-menu>
