@@ -31,26 +31,6 @@ img {
     width: 100%;
 }
 
-.form__group {
-    position: relative;
-    padding: 15px 0 0;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.form__field {
-    font-family: 'GmarketSansMedium';
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid #9b9b9b;
-    outline: 0;
-    font-size: 1.3rem;
-    color: black;
-    padding: 7px 0;
-    background: transparent;
-    transition: border-color 0.2s;
-}
-
 /*  GENERAL */
 body {
     font-family: sans-serif;
@@ -60,7 +40,7 @@ body {
 header,
 section {
     text-align: center;
-    padding: 6rem 1rem 5rem;
+    padding: 4rem 1rem 5rem;
 }
 
 /* TYPOGRAPHY */
@@ -103,64 +83,33 @@ li {
 
 /* FALLBACK FOR FLEXBOX & GRID */
 .container {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-@supports (display: grid) {
-    .container {
-        max-width: 1200px;
-    }
-
-    .grid-container {
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: (minmax(300px, 1fr)) [auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-gap: 1rem;
-    }
+.line{
+    margin-bottom: 30px;
+    border: 1px solid #4e4e4e;
+    opacity: 1;
 }
 
-.card {
-    margin-bottom: 1rem;
-}
-
-@supports (display: flex) {
-    .card {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-        align-items: flex-start;
-        margin-bottom: 0;
-    }
-}
 
 /* LAYOUT & DESIGN */
-.bg-grey {
-    background: #eee;
+
+#main{
+    width: 1000px;
+    padding-top: 50px;
 }
 
-.card {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+.box {
+    width: 134px;
     text-align: left;
     background: #fff;
+    height: auto;
 }
 
-.card__list::before {
-    content: "\2714";
-    display: inline-block;
-    font-size: inherit;
-    margin-right: 0.25em;
-    color: #88b62c;
-}
+
 
 .card__img {
     -webkit-box-ordinal-group: 0;
@@ -170,21 +119,16 @@ li {
     -ms-grid-row-align: center;
     align-self: center;
     margin-bottom: 1rem;
-    border-radius: 5px;
+    height: 132px;
+    width: 132px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+    font-size: 13px;
+    color: #333333;
 }
 
-.card__btn {
-    display: inline-block;
-    background: #8dbd2f;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    color: #fff;
-    text-decoration: none;
-    text-transform: capitalize;
-    font-weight: bold;
-    margin-top: auto;
-}
 
-.card__btn:hover {
-    background: #7ba329;
-}
+
+

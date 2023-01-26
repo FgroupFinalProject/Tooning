@@ -63,6 +63,13 @@ export class ParticipatingWorksComponent {
     this.boardList = boardList;
   }
 
+  row(){
+    if(boardList.length%3 == 0){
+    return true;
+  }
+  return false;
+  }
+
   ngOnDestroy() {
     boardList = [];
     console.log("participating-works page end")

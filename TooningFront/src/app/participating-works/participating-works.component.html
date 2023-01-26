@@ -2,19 +2,50 @@
 
 <div class="container text-center">
     <span>🧸릴레이툰 참가작🧸</span>
-    <article class="container grid-container">
+    <article id="main" class="container row">
         <!-- Using Flexbox, text in the html is coded before images for accessibility purposes. With 'display: flex;' on the parent element, 'order: -1;' can be used on the child element to position images before the text for screen presentation -->
-        <div *ngFor="let item of boardList">
-            <div class="card shadow-2dp" (click)="goToParticipantDetail(item)">
-                <img class="card__img" id="pic-container" cImg fluid src="{{item.img}}" />
-                <div id="caption">
-                    <p name="rp_id" hidden>{{item.idx}}</p>
-                    <h1>{{item.title}}</h1>
-                    <p>작성자 : {{item.writer}}</p>
-                    <p>{{item.date}}</p>
-                    <p>좋아요 수 : {{item.like}}</p>
+        <section class="col">
+            <h1 style="text-align: left;">1번</h1>
+            <hr class="line">
+            <div class="first row row-cols-3">
+                <div class="col-4" *ngFor="let item of boardList">
+
+                    <div class="box" (click)="goToParticipantDetail(item)">
+                        <img class="card__img" cImg fluid src="{{item.img}}" />
+                        <div>
+                            <p name="rp_id" hidden>{{item.idx}}</p>
+                            <p><strong>{{item.title}}</strong></p>
+                            <hr>
+                            <p>{{item.writer}}</p>
+                            <p>{{item.date}}</p>
+                            <p>조회 : {{item.looks}}</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
+        </section>
+        <section class="col">
+            <h1 style="text-align: left;">2번</h1>
+            <hr class="line">
+            <div class="first row row-cols-3">
+                <div class="col-4" *ngFor="let item of boardList">
+
+                    <div class="box" (click)="goToParticipantDetail(item)">
+                        <img class="card__img" cImg fluid src="{{item.img}}" />
+                        <div>
+                            <p name="rp_id" hidden>{{item.idx}}</p>
+                            <p><strong>{{item.title}}</strong></p>
+                            <hr>
+                            <p>{{item.writer}}</p>
+                            <p>{{item.date}}</p>
+                            <p>조회 : {{item.looks}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </article>
 </div>
