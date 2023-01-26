@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 interface IBoardList {
   idx: Number;
   img: String;

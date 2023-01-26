@@ -1,46 +1,35 @@
 <app-header></app-header>
-
-<div class="container text-center">
-    <span>🧸Relay-Toon🧸</span>
-    <div class="form__group field">
-        <input class="form__field" placeholder="Name" type="text" id="title" name="title" maxlength="50"
-            value="{{this.title}}" disabled />
-        <label for="Name" class="form__label">제목</label>
+<div style="height: 200px;"></div>
+<div class="container text-center ">
+    <div class="row post-header">
+        <div style="position: relative;">
+            <span class="listbutton" (click)="goToParticipatingWorks()">목록으로 ></span>
+            <button class="menu" [matMenuTriggerFor]="menu">
+                <mat-icon> list </mat-icon>
+            </button>
+        </div>
+        <p class="title">{{this.title}}</p>
+        <p>{{this.writer}}</p>
+        <div style="position: relative;">
+            <p>{{this.date}}</p>
+            <p style="position: absolute; right: 0; bottom: 1px;">조회 : {{this.looks}}</p>
+        </div>
+        <hr>
     </div>
 
-    <div class="form__group field">
-        <input class="form__field" placeholder="Name" type="text" id="writer" name="writer" maxlength="50"
-            value="{{this.writer}}" disabled />
-        <label for="Name" class="form__label">작성자</label>
+    <img src="{{this.img}}" style="width: 500px; height: 500px;" />
+    <img src="{{this.img}}" style="width: 500px; height: 500px;" />
+    <div class="content">
+        <p>{{this.content}}</p> 
     </div>
 
-    <div class="form__group field">
-        <input class="form__field" placeholder="Name" type="text" id="date" name="date" maxlength="50"
-            value="{{this.date}}" disabled />
-        <label for="Name" class="form__label">작성날짜</label>
-    </div>
-
-    <div class="form__group field">
-        <img src="{{this.img}}" style="width: 500px; height: 500px;" />
-    </div>
-
-    <div class="form__group field">
-        <input class="form__field" placeholder="Name" type="text" id="contents" name="contents" maxlength="50"
-            value="{{this.content}}" disabled />
-        <label for="Name" class="form__label">작품설명</label>
-    </div>
-
-    <div class="form__group field">
-        <input class="form__field" placeholder="Name" type="text" id="looks" name="looks" maxlength="50"
-            value="{{this.looks}}" disabled />
-        <label for="Name" class="form__label">조회수</label>
-    </div>
-
+    
     <form ngNoForm [action]="delete_url" method="get" enctype="multipart/form-data">
         <div class="row">
-            <input class="col w-btn" type="button" (click)="modifyAlert()" value="수정하기" />
-            <input class="col w-btn" type="submit" (click)="deleteAlert()" value="삭제하기" />
-            <input class="col w-btn" type="button" (click)="goToParticipatingWorks()" value="목록으로" />
         </div>
     </form>
 </div>
+<mat-menu class="mat" #menu="matMenu">
+    <input mat-menu-item type="button" (click)="modifyAlert()" value="수정하기" />
+    <input mat-menu-item type="submit" (click)="deleteAlert()" value="삭제하기" />
+</mat-menu>
