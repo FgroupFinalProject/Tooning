@@ -13,7 +13,9 @@ import { HeaderComponent } from './header/header.component';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { RelayParticipantDetailPageComponent } from './relay-participant-detail-page/relay-participant-detail-page.component';
 import { ParticipatingModifyComponent } from './participating-modify/participating-modify.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 const router : Routes = [
   {path : 'participating-modify', component : ParticipatingModifyComponent},
   {path : 'relay-participant-detail-page', component : RelayParticipantDetailPageComponent},
@@ -31,14 +33,18 @@ const router : Routes = [
     PopularTemplatesComponent,
     HeaderComponent,
     RelayParticipantDetailPageComponent,
-    ParticipatingModifyComponent
+    ParticipatingModifyComponent,
+  
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(router,{enableTracing:false}),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [NgxImageCompressService],
   bootstrap: [AppComponent]

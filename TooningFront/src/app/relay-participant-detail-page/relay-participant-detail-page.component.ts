@@ -77,4 +77,6 @@ export class RelayParticipantDetailPageComponent {
   ngOnDestroy() {
     console.log("participating-works page end")
   }
+
+  
 }
