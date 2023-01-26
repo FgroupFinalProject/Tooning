@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="container text-center">
-    <span>🧸릴레이툰 참가작🧸</span>
+    
     <article id="main" class="container row">
         <div class="form__group field">
             <select class="form__field" name="templets">
@@ -14,10 +14,9 @@
         </div>
         <!-- Using Flexbox, text in the html is coded before images for accessibility purposes. With 'display: flex;' on the parent element, 'order: -1;' can be used on the child element to position images before the text for screen presentation -->
         <section class="col">
-            <!-- <h1 style="text-align: left;">1번</h1> -->
             <hr class="line">
-            <div class="first row row-cols-3">
-                <div class="col-4" *ngFor="let item of boardList">
+            <div class="row row-cols-6">
+                <div class="col-2" *ngFor="let item of boardList|slice:0:show let i=index" style="padding-left: 15px;">
 
                     <div class="box" (click)="goToParticipantDetail(item)" style="margin-bottom: 30px;">
                         <img class="card__img" cImg fluid src="{{item.img}}" />
@@ -28,11 +27,14 @@
                             <p>{{item.writer}}</p>
                             <p>{{item.date}}</p>
                             <p>조회 : {{item.looks}}</p>
+                            
                         </div>
                     </div>
-
+                    
                 </div>
+                
             </div>
+            <button class="custom-btn btn-16" *ngIf="boardList?.length || 0 > show" (click)="show = boardList?.length || 0">더보기</button>
         </section>
     </article>
 </div>

@@ -112,4 +112,6 @@ export class ParticipatingWorksComponent {
     templetsList = [];
     console.log("participating-works page end")
   }
+
+  show : number = 12;
 }
