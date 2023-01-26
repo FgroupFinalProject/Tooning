@@ -103,7 +103,7 @@ li {
 
 
 .box {
-    width: 240px;
+    width: 200px;
     text-align: left;
     background: #fff;
     height: auto;
@@ -119,8 +119,8 @@ li {
     -ms-grid-row-align: center;
     align-self: center;
     margin-bottom: 1rem;
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
 }
 p{
     padding: 0px;

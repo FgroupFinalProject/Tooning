@@ -15,13 +15,8 @@
         <!-- Using Flexbox, text in the html is coded before images for accessibility purposes. With 'display: flex;' on the parent element, 'order: -1;' can be used on the child element to position images before the text for screen presentation -->
         <section class="col">
             <hr class="line">
-<<<<<<< HEAD
-            <div class="first row row-cols-3">
-                <div class="col-4" *ngFor="let item of boardList" style="width: auto;">
-=======
             <div class="row row-cols-6">
-                <div class="col-2" *ngFor="let item of boardList|slice:0:show let i=index" style="padding-left: 15px;">
->>>>>>> 9e12170cd188dc0cbf614e0acb3a47619e91e960
+                <div class="col-3" *ngFor="let item of boardList|slice:0:show let i=index" style="padding-left: 15px;">
 
                     <div class="box" (click)="goToParticipantDetail(item)" style="margin-bottom: 30px;">
                         <img class="card__img" cImg fluid src="{{item.img}}" />
