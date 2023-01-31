@@ -7,10 +7,12 @@
 
 .logo{
     height: 150px;
+    width: 100%;
     position: absolute;
     padding-top: 40px;
     padding-left: 50px;
-    cursor : pointer;
+    
+    background-color: white;
 }
 .logo img{
      display: inline-block;
@@ -26,4 +28,5 @@ span{
     color: #000;
     font-size: 60px;
     font-weight: 700;
+    cursor : pointer;
 }
