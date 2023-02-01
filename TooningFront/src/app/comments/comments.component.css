@@ -37,10 +37,7 @@ position: relative;;
 .menu{
     height: 24px;
     width: 24px;
-    position: absolute;
-    right: 0px;
-    border: none;
-    bottom: 36px;
+    border: none; 
     background-color: none;
 }
 
@@ -117,11 +114,11 @@ position: relative;;
 }
 
 .comment-button{
-    position: relative;
+    /* position: relative; */
 }
 .w-btn {
-    position: absolute;
-    right: 0px;
+    
+    
     border: none;
     display: inline-block;
     padding: 5px 30px;
@@ -134,9 +131,9 @@ position: relative;;
     width: 120px;
     background-color: #38ef7d;
     color: #d4dfe6;
-    margin: 30px;
+    margin-top: 12px;
     height: 30px;
-    bottom: -21px;
+    
 }
 
 .w-btn:hover {
@@ -145,4 +142,16 @@ position: relative;;
     cursor: pointer;
     background-color: #38ef7d;
     color: #d4dfe6;
+}
+
+.comments-content p:nth-child(2){
+    font-size: 12px;
+}
+
+.comments-content p:nth-child(3){
+    font-size: 12px;
+}
+
+.comments-content p:nth-child(4){
+    font-size: 8px;
 }

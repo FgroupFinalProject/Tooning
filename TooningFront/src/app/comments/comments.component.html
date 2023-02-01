@@ -4,14 +4,14 @@
 </div>
 
 <div class="comments-box">
-    <div class="col-4" *ngFor="let comm of commentList">
+    <div class="col-4 comments-content" *ngFor="let comm of commentList">
         <p hidden>{{comm.idx}}</p>
         <!-- 닉네임 -->
-        <p><strong>닉네임</strong> {{comm.writer}} </p>
+        <p><strong>{{comm.writer}}</strong></p>
         <!-- 댓글내용 -->
-        <p>댓글내용</p> {{comm.content}}
+        <p>{{comm.content}}</p> 
         <!-- 날짜 -->
-        <p>날짜</p> {{comm.date}}
+        <p class="date">{{comm.date}}</p> 
         <button class="menu" [matMenuTriggerFor]="menu">
             <mat-icon> list </mat-icon>
         </button>
@@ -25,12 +25,20 @@
             <input class="form__field" placeholder="Name" type="text" name="title" maxlength="50" value="" />
             <label for="Name" class="form__label">닉네임</label>
         </div>
-        <div class="col-10">
+        
+        <div class="col-8">
             <textarea class="form-control" placeholder="댓글을 남겨보세요" name="contents" rows="2" cols="50"></textarea>
         </div>
-        <div class="comment-button">
-            <input class="w-btn" type="submit" value="댓글 등록" />
+        <div class="col-2">
+        <div class="form__group field">
+            <input class="form__field" placeholder="Name" type="password" id="password" name="password" maxlength="50"
+                value="" />
+            <label for="Name" class="form__label">비밀번호</label>
+            <div class="comment-button">
+                <input class="w-btn" type="submit" value="댓글 등록" />
+            </div>
         </div>
+    </div>
     </div>
 </form>
 
