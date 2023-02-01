@@ -56,6 +56,9 @@ export class CommentsComponent {
   //   }
   // }
 
+  //댓글 수 카운트
+  commentCount : any
+
   ngOnInit() {
     this.boardId = this.route.snapshot.paramMap.get('item')
     this.comment_insert_url = "http://localhost:5000/comment_insert/" + this.boardId
@@ -63,6 +66,10 @@ export class CommentsComponent {
     //console.log(this.comment_insert_url)
 
     this.delete_url = 'http://localhost:5000/comment_delete/' + this.boardId
+
+    this.http.get<any>('http://localhost:5000/comment_list_count/' + this.boardId).subscribe(data => {
+      this.commentCount = data[0].count
+    });
 
     this.http.get<any>('http://localhost:5000/comment_list/' + this.boardId).subscribe(data => {
       console.log(data)

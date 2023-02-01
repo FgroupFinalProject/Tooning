@@ -1,17 +1,17 @@
 <div style="text-align: left;">
-    <p>댓글()</p>
+    <p>댓글({{commentCount}})</p>
     <hr>
 </div>
 
 <div class="comments-box">
     <div class="col-4 comments-content" *ngFor="let comm of commentList">
-        <p hidden>{{comm.idx}}</p>
+        <p name="comment_id" hidden>{{comm.idx}}</p>
         <!-- 닉네임 -->
         <p><strong>{{comm.writer}}</strong></p>
         <!-- 댓글내용 -->
-        <p>{{comm.content}}</p> 
+        <p>{{comm.content}}</p>
         <!-- 날짜 -->
-        <p class="date">{{comm.date}}</p> 
+        <p class="date">{{comm.date}}</p>
         <button class="menu" [matMenuTriggerFor]="menu">
             <mat-icon> list </mat-icon>
         </button>
@@ -25,26 +25,26 @@
             <input class="form__field" placeholder="Name" type="text" name="title" maxlength="50" value="" />
             <label for="Name" class="form__label">닉네임</label>
         </div>
-        
+
         <div class="col-8">
             <textarea class="form-control" placeholder="댓글을 남겨보세요" name="contents" rows="2" cols="50"></textarea>
         </div>
         <div class="col-2">
-        <div class="form__group field">
-            <input class="form__field" placeholder="Name" type="password" id="password" name="password" maxlength="50"
-                value="" />
-            <label for="Name" class="form__label">비밀번호</label>
-            <div class="comment-button">
-                <input class="w-btn" type="submit" value="댓글 등록" />
+            <div class="form__group field">
+                <input class="form__field" placeholder="Name" type="password" id="password" name="password"
+                    maxlength="50" value="" />
+                <label for="Name" class="form__label">비밀번호</label>
+                <div class="comment-button">
+                    <input class="w-btn" type="submit" value="댓글 등록" />
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </form>
 
 <mat-menu class="mat" #menu="matMenu">
     <input mat-menu-item type="button" value="수정하기" />
     <form ngNoForm [action]="delete_url" method="get" enctype="multipart/form-data">
-        <input mat-menu-item type="submit" (click)="deleteAlert()" value="삭제하기" />
+        <input mat-menu-item type="submit" value="삭제하기" />
     </form>
 </mat-menu>
