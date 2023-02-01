@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 interface IBoardList {
@@ -11,6 +11,7 @@ interface IBoardList {
   like: String;
   looks: String;
   rt_id: Number;
+  whether: boolean;
 }
 
 let boardList: IBoardList[];
@@ -46,6 +47,7 @@ export class ParticipatingWorksComponent {
     like: any;
     looks: any;
     rt_id: any;
+    whether: boolean;
   }[] | undefined;
 
   templetsList: {
@@ -79,7 +81,8 @@ export class ParticipatingWorksComponent {
           date: data[i].rp_date,
           like: data[i].rp_like,
           looks: data[i].rp_looks,
-          rt_id: data[i].relay_toon_rt_id
+          rt_id: data[i].relay_toon_rt_id,
+          whether: false
         });
       }
     });
@@ -114,4 +117,10 @@ export class ParticipatingWorksComponent {
   }
 
   show : number = 12;
+  morebutton(){
+    this.show = this.show+4;
+  }
+    favoriteClick(item: IBoardList) {
+        item.whether = !item.whether;
+    }
 }

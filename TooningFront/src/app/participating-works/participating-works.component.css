@@ -199,3 +199,22 @@ p{
   .btn-16:active {
     top: 2px;
   }
+
+  .favorite{
+    width: 24px;
+    height: 24px;
+  }
+
+  .favorite-div{
+    position: absolute;
+width: 24px;
+height: 24px;
+right: 6px;
+top: 6px;
+  }
+  .favorite-div p{
+    font-size: 6px;
+    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+    color: white;
+  }
+  

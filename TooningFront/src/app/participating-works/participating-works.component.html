@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="container text-center">
-    
+
     <article id="main" class="container row">
         <!-- <div class="form__group field">
             <select class="form__field" name="templets">
@@ -17,7 +17,14 @@
             <hr class="line">
             <div class="row row-cols-6">
                 <div class="col-3" *ngFor="let item of boardList|slice:0:show let i=index" style="padding-left: 15px;">
-
+                    <div style="position: relative; width: 200px;">
+                    <div class="favorite-div" (click)="favoriteClick(item)">
+                        <img *ngIf="item.whether else red" class="favorite" cImg fluid src="assets/img/icon-favorite-red.png" />
+                        <ng-template #red>
+                            <img class="favorite" cImg fluid src="assets/img/icon-favorite-black.png" />
+                        </ng-template>
+                        <p>{{item.like}}</p>
+                    </div>
                     <div class="box" (click)="goToParticipantDetail(item)" style="margin-bottom: 30px;">
                         <img class="card__img" cImg fluid src="{{item.img}}" />
                         <div>
@@ -27,14 +34,14 @@
                             <p>{{item.writer}}</p>
                             <p>{{item.date}}</p>
                             <p>조회 : {{item.looks}}</p>
-                            
+
                         </div>
                     </div>
-                    
                 </div>
-                
+                </div>
+
             </div>
-            <button class="custom-btn btn-16" *ngIf="boardList?.length || 0 > show" (click)="show = boardList?.length || 0">더보기</button>
+            <button class="custom-btn btn-16" *ngIf="boardList?.length || 0 > show " (click)="morebutton()">더보기</button>
         </section>
     </article>
 </div>
