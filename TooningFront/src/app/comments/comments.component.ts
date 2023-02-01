@@ -19,6 +19,7 @@ commentList = [];
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent {
+  commentPasswd: any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -37,27 +38,31 @@ export class CommentsComponent {
   comment_insert_url: string
 
   //삭제하기 버튼
-  commentPasswd : any;
-  delete_url : string
+  delete_url: string
 
-  deleteAlert() {
-    this.delete_url = 'http://localhost:5000/comment_delete/' + this.boardId
-    alert('삭제되었습니다.')
-    // var delete_alert = confirm('정말 삭제하시겠습니까?')
-    // if(delete_alert == true) {
-    //   var passwd = prompt('게시물의 비밀번호를 입력하세요')
-    //   if(passwd == this.commentPasswd){
-    //   }else{
-    //     alert('비밀번호가 일치하지 않습니다.')
-    //   }
-    // }
-  }
+  // commentDeleteAlert() {
+  //   //this.delete_url = 'http://localhost:5000/comment_delete/' + this.boardId
+  //   var delete_alert = confirm('해당 댓글을 삭제하시겠습니까?')
+  //   if (delete_alert == true) {
+  //     var passwd = prompt('댓글의 비밀번호를 입력하세요')
+  //     if (passwd == this.commentPasswd) {
+  //       this.delete_url = 'http://localhost:5000/comment_delete/' + this.boardId
+  //       alert('삭제되었습니다.')
+  //     } else {
+  //       console.log(this.commentPasswd)
+  //       console.log(this.delete_url)
+  //       alert('비밀번호가 일치하지 않습니다.')
+  //     }
+  //   }
+  // }
 
   ngOnInit() {
     this.boardId = this.route.snapshot.paramMap.get('item')
     this.comment_insert_url = "http://localhost:5000/comment_insert/" + this.boardId
-    console.log(this.boardId)
-    console.log(this.comment_insert_url)
+    //console.log(this.boardId)
+    //console.log(this.comment_insert_url)
+
+    this.delete_url = 'http://localhost:5000/comment_delete/' + this.boardId
 
     this.http.get<any>('http://localhost:5000/comment_list/' + this.boardId).subscribe(data => {
       console.log(data)
