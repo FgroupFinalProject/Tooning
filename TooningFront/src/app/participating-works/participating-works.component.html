@@ -18,26 +18,27 @@
             <div class="row row-cols-6">
                 <div class="col-3" *ngFor="let item of boardList|slice:0:show let i=index" style="padding-left: 15px;">
                     <div style="position: relative; width: 200px;">
-                    <div class="favorite-div" (click)="favoriteClick(item)">
-                        <img *ngIf="item.whether else red" class="favorite" cImg fluid src="assets/img/icon-favorite-red.png" />
-                        <ng-template #red>
-                            <img class="favorite" cImg fluid src="assets/img/icon-favorite-black.png" />
-                        </ng-template>
-                        <p>{{item.like}}</p>
-                    </div>
-                    <div class="box" (click)="goToParticipantDetail(item)" style="margin-bottom: 30px;">
-                        <img class="card__img" cImg fluid src="{{item.img}}" />
-                        <div>
-                            <p name="rp_id" hidden>{{item.idx}}</p>
-                            <p><strong>{{item.title}}</strong></p>
-                            <hr style="margin-bottom: 10px;">
-                            <p>{{item.writer}}</p>
-                            <p>{{item.date}}</p>
-                            <p>조회 : {{item.looks}}</p>
+                        <div class="favorite-div" (click)="favoriteClick(item)">
+                            <img *ngIf="item.whether else red" class="favorite" cImg fluid
+                                src="assets/img/icon-favorite-red.png" />
+                            <ng-template #red>
+                                <img class="favorite" cImg fluid src="assets/img/icon-favorite-black.png" />
+                            </ng-template>
+                            <p>{{item.like}}</p>
+                        </div>
+                        <div class="box" (click)="goToParticipantDetail(item)" style="margin-bottom: 30px;">
+                            <img class="card__img" cImg fluid src="{{item.img}}" />
+                            <div>
+                                <p name="rp_id" hidden>{{item.idx}}</p>
+                                <p><strong>{{item.title}}</strong></p>
+                                <hr style="margin-bottom: 10px;">
+                                <p>{{item.writer}}</p>
+                                <p>{{item.date}}</p>
+                                <p>조회 : {{item.looks}}</p>
 
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
 
             </div>

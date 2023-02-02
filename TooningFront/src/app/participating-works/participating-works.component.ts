@@ -63,8 +63,8 @@ export class ParticipatingWorksComponent {
     //console.log(item.idx)
     this.router.navigate(['/relay-participant-detail-page', { item: item.idx }])
   }
-  
-  click(temp: ITempletsList){
+
+  click(temp: ITempletsList) {
     console.log(temp.idx)
   }
 
@@ -116,11 +116,11 @@ export class ParticipatingWorksComponent {
     console.log("participating-works page end")
   }
 
-  show : number = 12;
-  morebutton(){
-    this.show = this.show+4;
+  show: number = 12;
+  morebutton() {
+    this.show = this.show + 4;
   }
-    favoriteClick(item: IBoardList) {
-        item.whether = !item.whether;
-    }
+  favoriteClick(item: IBoardList) {
+    item.whether = !item.whether;
+  }
 }
