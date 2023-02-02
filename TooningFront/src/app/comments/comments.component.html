@@ -5,7 +5,7 @@
 
 <div class="comments-box">
     <div class="col-4 comments-content" *ngFor="let comm of commentList">
-        <p name="comment_id" hidden>{{comm.idx}}</p>
+        <p name="comment_id">{{comm.idx}}</p>
         <!-- 닉네임 -->
         <p><strong>{{comm.writer}}</strong></p>
         <!-- 댓글내용 -->
@@ -16,6 +16,37 @@
             <mat-icon> list </mat-icon>
         </button>
         <hr>
+        <button (click)="(showMyContainer=!showMyContainer)"> 답글 </button>
+
+        <!--답글 컨테이너-->
+        <div *ngIf="showMyContainer">
+            <form ngNoForm [action]="comment_insert_url" method="post">
+                <div class="writing-box row row-col-6">
+                    <div class="form__group field col-2">
+                        <input class="form__field" placeholder="Name" type="text" name="title" maxlength="50"
+                            value="" />
+                        <label for="Name" class="form__label">닉네임</label>
+                    </div>
+
+                    <div class="col-8">
+                        <textarea class="form-control" placeholder="댓글을 남겨보세요" name="contents" rows="2"
+                            cols="50"></textarea>
+                    </div>
+                    <div class="col-2">
+                        <div class="form__group field">
+                            <input class="form__field" placeholder="Name" type="password" id="password" name="password"
+                                maxlength="50" value="" />
+                            <label for="Name" class="form__label">비밀번호</label>
+                            <div class="comment-button">
+                                <input class="w-btn" type="submit" value="댓글 등록" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--답글 컨테이너-->
+
     </div>
 </div>
 

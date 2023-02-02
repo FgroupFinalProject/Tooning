@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 interface ICommentList {
   idx: Number;
   writer: String;
@@ -56,8 +57,12 @@ export class CommentsComponent {
   //   }
   // }
 
+  //답글 토글
+  showMyContainer: boolean = false;
+  commentID: any
+
   //댓글 수 카운트
-  commentCount : any
+  commentCount: any
 
   ngOnInit() {
     this.boardId = this.route.snapshot.paramMap.get('item')
