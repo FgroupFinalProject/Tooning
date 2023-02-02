@@ -5,7 +5,7 @@
 
 <div class="comments-box">
     <div class="col-4 comments-content" *ngFor="let comm of commentList">
-        <p name="comment_id">{{comm.idx}}</p>
+        <input type="hidden" name="comment_id" value="{{comm.idx}}">
         <!-- 닉네임 -->
         <p><strong>{{comm.writer}}</strong></p>
         <!-- 댓글내용 -->
@@ -16,10 +16,10 @@
             <mat-icon> list </mat-icon>
         </button>
         <hr>
-        <button (click)="(showMyContainer=!showMyContainer)"> 답글 </button>
+        <button (click)="replyClick(comm)"> 답글 </button>
 
         <!--답글 컨테이너-->
-        <div *ngIf="showMyContainer">
+        <div *ngIf="comm.reply == true">
             <form ngNoForm [action]="comment_insert_url" method="post">
                 <div class="writing-box row row-col-6">
                     <div class="form__group field col-2">

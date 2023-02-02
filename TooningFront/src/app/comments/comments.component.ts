@@ -9,6 +9,7 @@ interface ICommentList {
   date: String;
   content: String;
   commentPasswd: String;
+  reply: boolean;
 }
 
 let commentList: ICommentList[];
@@ -33,6 +34,7 @@ export class CommentsComponent {
     date: String;
     content: String;
     commentPasswd: String;
+    reply: boolean;
   }[] | undefined;
 
   boardId: any
@@ -57,12 +59,14 @@ export class CommentsComponent {
   //   }
   // }
 
-  //답글 토글
-  showMyContainer: boolean = false;
-  commentID: any
-
   //댓글 수 카운트
   commentCount: any
+  
+  //답글 토글
+  //showMyContainer: boolean = false;
+  replyClick(item: ICommentList) {
+    item.reply = !item.reply
+  }
 
   ngOnInit() {
     this.boardId = this.route.snapshot.paramMap.get('item')
@@ -86,6 +90,7 @@ export class CommentsComponent {
           date: data[i].comment_date,
           content: data[i].comment_content,
           commentPasswd: data[i].comment_pwd,
+          reply: false //답글 토글 T/F 판단
         });
       }
     });
