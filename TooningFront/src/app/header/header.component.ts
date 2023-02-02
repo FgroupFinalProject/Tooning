@@ -9,9 +9,26 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   constructor(
     private router: Router
-  ) { }
+  ) { 
+    this.email = sessionStorage.getItem('email');
+    console.log(this.email);
+  }
+
+    email:String | null ;
+
+  ngOninit(){
+    
+    
+  }
 
   goToMain() {
     this.router.navigate(['/main'])
+    
+  }
+
+  goToLogin() {
+   
+    this.router.navigate(['/login']);
+  
   }
 }

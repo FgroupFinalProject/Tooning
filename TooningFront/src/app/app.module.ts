@@ -17,12 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { CommentsComponent } from './comments/comments.component';
+import { LoginComponent } from './login/login.component';
 const router : Routes = [
   {path : 'participating-modify', component : ParticipatingModifyComponent},
   {path : 'relay-participant-detail-page', component : RelayParticipantDetailPageComponent},
   {path : 'participating-works', component : ParticipatingWorksComponent},
   {path : 'participating', component : ParticipatingComponent},
   {path : 'main', component : MainComponent},
+  {path : 'login', component : LoginComponent},
   {path : '', redirectTo : '/main',  pathMatch : 'full'}
 ]
 @NgModule({
@@ -36,6 +38,7 @@ const router : Routes = [
     RelayParticipantDetailPageComponent,
     ParticipatingModifyComponent,
     CommentsComponent,
+    LoginComponent,
   
   ],
   imports: [

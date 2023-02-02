@@ -1,4 +1,9 @@
 <div class="logo">
     <span  (click)="goToMain()">TOONSQUARE</span>
     <!-- <img cImg fluid src="assets/img/squareLogo.png" /> -->
+
+    <span *ngIf="email == null else logout" class="login" (click)="goToLogin()">로그인</span>
+    <ng-template #logout>
+        <span class="login" (click)="goToLogin()">로그아웃</span>
+    </ng-template>
 </div>
